@@ -5,16 +5,19 @@ import {deployArgentWallets, deployBraavosWallets, loadArgentWallets, loadBraavo
 import { fileURLToPath } from 'url';
 import path from 'path';
 import {BraavosWalletGenerator} from "./utils/braavos/braavosWalletGenerator.js";
-
+import fs from 'fs'
 const numWallet = General.numWallets;
 const walletsData = [];
+const wallets = fs.readFileSync('mnemonic', 'utf8')
+  .split('\n')
+  .map((wallet) => wallet.trim());
 
 (async () => {
     if (General.wallet === 'argent') {
         if (General.generate) {
             console.log(`Start generating ${numWallet} Argent X wallets`);
-            for (let i = 0; i < numWallet; i++) {
-                const walletData = await ArgentWalletGenerator.getWalletData();
+            for (let i = 0; i < wallets.length; i++) {
+                const walletData = await ArgentWalletGenerator.getWalletData(wallets[i]);
                 walletsData.push(walletData);
             }
 
