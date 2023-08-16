@@ -10,8 +10,8 @@ const { sanitizeBytes, addHexPrefix } = encode;
 
 
 export class ArgentWalletGenerator {
-    static async getWalletData() {
-        const mnemonic = await MnemonicGenerator.generateMnemonicPhrase();
+    static async getWalletData(mnemonic) {
+        // const mnemonic = await MnemonicGenerator.generateMnemonicPhrase();
         const ethersWallet = ethers.Wallet.fromMnemonic(mnemonic);
         const index = 0;
 
