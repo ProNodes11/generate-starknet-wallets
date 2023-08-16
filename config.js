@@ -1,7 +1,7 @@
 export class General {
-    static wallet = 'braavos'; // 'braavos' | 'argent'
-    static generate = false;  // generate wallets | true || false |
-    static deploy = true;  // deploy wallets  | true || false |
+    static wallet = 'argent'; // 'braavos' | 'argent'
+    static generate = true;  // generate wallets | true || false |
+    static deploy = false;  // deploy wallets  | true || false |
 
     static numWallets = 10;  // number of wallets to generate | 1 || n
     static delay = [1, 5];  // delay in seconds between deploying wallets | 1 || n |
